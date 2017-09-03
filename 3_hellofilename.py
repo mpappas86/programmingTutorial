@@ -2,7 +2,7 @@ import os
 
 
 def load_name_from_file():
-    with open(os.path.abspath(os.path.join(os.path.dirname(__file__), '3_filename.txt'))) as opened_file:
+    with open('3_filename.txt') as opened_file:
         name = opened_file.read()
     return name
 
