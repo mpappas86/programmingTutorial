@@ -1,0 +1,25 @@
+<!doctype html>
+    <head>
+        <title>Our Webpage!</title>
+        <script language="javascript">
+            function display() {
+                if({{ clicked | tojson }}) {
+                    document.getElementById('demo').innerHTML = Date();
+                }
+            }
+            function setDateTime() {
+                document.getElementById('demo').innerHTML = Date();
+                var xhttp = new XMLHttpRequest();
+                xhttp.open("GET", "http://localhost:5000/api/clicked", false);
+                xhttp.send();
+            }
+        </script>
+    </head>
+    <body onload='display()'>
+        <p>Hello world! </p>
+        <button type="button"
+        onclick='setDateTime()'>
+        Click me to display Date and Time.</button>
+        <p id="demo">DatetimeWillDisplayHere</p>
+    </body>
+<html>
