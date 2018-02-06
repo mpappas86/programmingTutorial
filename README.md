@@ -38,6 +38,8 @@ for it to process.
 shown to those users. This is the simplest possible example - a webserver that servers up the same "Hello World" webpage
 to all users who request it.
 
+These things really just load and show files, and the IPs are addresses to other computers's files. See e.g. 172.217.6.206 for google.com.
+
 # Lesson 6: Javascript Webservers
 We now add another trick by allowing our webserver to serve up webpages with interesting functionality. This functionality
 is described using two different languages, `HTML` and `Javascript`. HTML is used to lay out the different elements of
