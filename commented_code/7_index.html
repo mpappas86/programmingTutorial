@@ -1,0 +1,35 @@
+<!--Again, this is similar to the previous page. There are 2 big things to notice, though.-->
+<!--The first is that we have "onload='display()'" when we define the body. That means-->
+<!--that as soon as you try to load the webpage, the website will immediately call the-->
+<!--"display()" function, defined towards the top here in javascript. That function checks-->
+<!--the "clicked" variable - which is set for us by the python code - and if it is true,-->
+<!--automatically sets the "demo" text to be the date, without waiting for the user to press the button again.-->
+<!--The second thing that happens is that when the user presses the button, it now triggers the SetDateTime()-->
+<!--function. This changes the "demo" text to the date, but also calls the "api/clicked" endpoint,-->
+<!--which will tell our database that the user has clicked on the button!-->
+<!--So in summary, we alert our database when the user clicks, and then the database tells us they've clicked if we ever forget.-->
+<!doctype html>
+    <head>
+        <title>Our Webpage!</title>
+        <script language="javascript">
+            function display() {
+                if({{ clicked | tojson }}) {
+                    document.getElementById('demo').innerHTML = Date();
+                }
+            }
+            function setDateTime() {
+                document.getElementById('demo').innerHTML = Date();
+                var xhttp = new XMLHttpRequest();
+                xhttp.open("GET", "http://localhost:5000/api/clicked", false);
+                xhttp.send();
+            }
+        </script>
+    </head>
+    <body onload='display()'>
+        <p>Hello world! </p>
+        <button type="button"
+        onclick='setDateTime()'>
+        Click me to display Date and Time.</button>
+        <p id="demo">DatetimeWillDisplayHere</p>
+    </body>
+<html>

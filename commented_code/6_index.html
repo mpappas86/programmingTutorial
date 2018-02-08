@@ -1,0 +1,19 @@
+<!--This is how you add a comment in HTML! It's one of many ways Python is more readable. -->
+<!--HTML is primarily a formatting language - it's less about manipulating data and more about laying out different parts of the webpage.-->
+<!doctype html>
+    <head>
+        <!--For instance, here we're setting the title of the webpage!-->
+        <title>Our Webpage!</title>
+    </head>
+    <body>
+        <!--And here we're adding the body - what shows up on the main page. It's some text - Hello World! - and a button.-->
+        <p>Hello world! </p>
+        <!--The button logic is a bit tricky to read but roughly means "If someone clicks me, set the thing labeled as "demo" to the current date!"-->
+        <!--Notice the "demo" label on the block right below the button - which currently says DatetimeWillDisplayHere.-->
+        <!--So "DatetimeWillDisplayHere" will be replaced by the date when you press the button.-->
+        <button type="button"
+    onclick="document.getElementById('demo').innerHTML = Date()">
+    Click me to display Date and Time.</button>
+        <p id="demo">DatetimeWillDisplayHere</p>
+    </body>
+</html>
